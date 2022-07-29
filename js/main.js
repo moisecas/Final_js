@@ -20,8 +20,12 @@ function validar(){
 function credito(monto, plazo, interes){
     
     let intereses = monto * (interes / 100);
-    let total = monto + intereses;
-    let cuota = total / plazo;
+
+    //total parseInt() convierte a entero
+    let total = parseInt(monto) + parseInt(intereses);
+    
+    //cuota usando Math.trunc() para redondear el resultado
+    let cuota = Math.trunc(total / plazo);
     //return `El monto total a pagar es ${total} y la cuota mensual es ${cuota}`;
     document.getElementById("resultado").innerHTML = `El monto total a pagar es ${total} y la cuota mensual es ${cuota}`;  //muestro el monto total a pagar y la cuota mensual
 }
